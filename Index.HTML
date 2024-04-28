@@ -11,25 +11,92 @@
       rel="stylesheet"
     />
     <title>Weather Forecast App</title>
+    <style>
+      body {
+        font-family: "Noto Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .weather-forecast {
+        text-align: center;
+        margin: 30px auto;
+        max-width: 600px;
+        padding: 0 20px;
+      }
+      .search-form {
+        margin-bottom: 20px;
+      }
+      .search-form-input {
+        padding: 10px;
+        width: 60%;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      .search-form-button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .weather-forecast-data {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      .weather-forecast-city {
+        margin: 0;
+        font-size: 24px;
+      }
+      .weather-forecast-details {
+        margin: 10px 0;
+      }
+      .weather-forecast-icon {
+        font-size: 36px;
+      }
+      .weather-forecast-temperature {
+        font-size: 36px;
+        font-weight: bold;
+        display: inline-block;
+      }
+      .weather-forecast-unit {
+        font-size: 20px;
+        vertical-align: top;
+      }
+    </style>
   </head>
   <body>
     <div class="weather-forecast">
       <header>
-        <form>
-          <input type="search" placeholder="Enter a city..." required />
-          <input type="submit" value="Search" />
+        <form class="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            required
+            class="search-form-input"
+          />
+          <input type="submit" value="Search" class="search-form-button" />
         </form>
       </header>
       <main>
-        <div>
-          <h1>Johannesburg</h1>
-          <p>
-            Sunday 09:42, Sunny
-            <br />
-            Humidity 59%, Wind: 6km/h
-          </p>
+        <div class="weather-forecast-data">
+          <div>
+            <h1 class="weather-forecast-city">Johannesburg</h1>
+            <p class="weather-forecast-details">
+              Sunday 09:42, Sunny
+              <br />
+              Humidity: <strong>59%</strong>, Wind: <strong>6km/h</strong>
+            </p>
+          </div>
+          <div class="weather-forecast-temperature-container">
+            <div class="weather-forecast-icon">🌞</div>
+            <div class="weather-forecast-temperature">16</div>
+            <div class="weather-forecast-unit">&deg;C</div>
+          </div>
         </div>
-        <div>🌞 16&deg;C</div>
       </main>
       <footer>
         This project was built by
