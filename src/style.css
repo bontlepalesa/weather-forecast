@@ -88,6 +88,25 @@ main {
   font-size: 28px;
 }
 
+.weather-app {
+  margin-top: 20px;
+  text-align: left;
+  color: #000;
+}
+
+.weather-app-date {
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.weather-app-temperature-min {
+  opacity: 0.5;
+}
+
+.weather-app-temperature {
+  font-size: 13px;
+}
+
 footer {
   border-top: 1px solid white;
   padding: 30px;
