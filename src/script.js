@@ -1,4 +1,4 @@
-function updateWeatherData(response) {
+function refreshWeather(response) {
   let temperatureElement = document.querySelector("#temperature");
   let temperature = response.data.temperature.current;
   let cityElement = document.querySelector("#city");
@@ -9,13 +9,15 @@ function updateWeatherData(response) {
   let date = new Date(response.data.time * 1000);
   let iconElement = document.querySelector("#icon");
 
-  icon.innerHTML = ` <img src = "${response.data.condition.icon_url}" class="weather-forecast-icon" />`;
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   temperatureElement.innerHTML = Math.round(temperature);
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-forecast-icon" />`;
+
+  getApp(response.data.city);
 }
 
 function formatDate(date) {
@@ -42,7 +44,7 @@ function formatDate(date) {
 function searchCity(city) {
   let apiKey = "8d758131c43bf55a8b2805d0to4ff507";
   let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiURL).then(updateWeatherData);
+  axios.get(apiURL).then(refreshWeather);
 }
 
 function handleSearchSubmit(event) {
@@ -52,13 +54,20 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayApp() {
+function getApp(city) {
+  let apiKey = "8d758131c43bf55a8b2805d0to4ff507";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayApp);
+}
+
+function displayApp(response) {
+  console.log(response.data);
+
   let days = ["Tues", "Wed", "Thu", "Fri", "Sat"];
   let appHtml = "";
 
   days.forEach(function (day) {
     appHtml += `
-    
        <div class="weather-app-day">
         <div class="weather-app-date">${day}</div>
         <div class="weather-app-icon">🌤️</div>
@@ -77,8 +86,6 @@ function displayApp() {
 
   let searchFormElement = document.querySelector("#search-form");
   searchFormElement.addEventListener("submit", handleSearchSubmit);
-
-  searchCity("Paris");
 }
 
-displayApp();
+searchCity("Johannesburg");
