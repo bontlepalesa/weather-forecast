@@ -12,62 +12,7 @@
       rel="stylesheet"
     />
     <title>Weather Forecast App</title>
-    <style>
-      body {
-        font-family: "Noto Sans", sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      .weather-forecast {
-        text-align: center;
-        margin: 30px auto;
-        max-width: 600px;
-        padding: 0 20px;
-      }
-      .search-form {
-        margin-bottom: 20px;
-      }
-      .search-form-input {
-        padding: 10px;
-        width: 60%;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-      }
-      .search-form-button {
-        padding: 10px 20px;
-        border: none;
-        background-color: #007bff;
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      .weather-forecast-data {
-        background-color: #f5f5f5;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-      }
-      .weather-forecast-city {
-        margin: 0;
-        font-size: 35px;
-      }
-      .weather-forecast-details {
-        margin: 10px 0;
-      }
-      .weather-forecast-icon {
-        font-size: 36px;
-      }
-      .weather-forecast-temperature {
-        font-size: 36px;
-        font-weight: bold;
-        display: inline-block;
-      }
-      .weather-forecast-unit {
-        font-size: 20px;
-        vertical-align: top;
-      }
-    </style>
+    <body>
   </head>
   <body>
     <div class="weather-forecast">
@@ -101,20 +46,9 @@
             <div class="weather-forecast-unit">&deg;C</div>
           </div>
         </div>
-        <div class = "weather-app">
-          <div class = "row">
-              <div class = "col - 2">
-                <div class="weather-app-date">Thu</div>
-                <img src="http://openweathermap.org/img/wn/50d@2x.png" alt=""width="42px" />
-                </div>
-                 <div class="weather-app-temperatures">
-                  <span class="weather-app-temperature-max">18&deg;</span>
-                 <span class="weather-app-temperature-min">12&deg;</span>
-              </div>
-            </div>
-
-
+        <div class="weather-app" id="app"></div>
       </main>
+
       <footer>
         This project was built by
         <a href="https://github.com/bontlepalesa/" target="_blank"

@@ -52,7 +52,33 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", handleSearchSubmit);
+function displayApp() {
+  let days = ["Tues", "Wed", "Thu", "Fri", "Sat"];
+  let appHtml = "";
 
-searchCity("Paris");
+  days.forEach(function (day) {
+    appHtml += `
+    
+       <div class="weather-app-day">
+        <div class="weather-app-date">${day}</div>
+        <div class="weather-app-icon">🌤️</div>
+        <div class="weather-app-temperatures">
+          <div class="weather-app-temperature">
+            <strong>15º</strong>
+          </div>
+          <div class="weather-app-temperature">9º</div>
+        </div>
+      </div>
+    `;
+  });
+
+  let appElement = document.querySelector("#app");
+  appElement.innerHTML = appHtml;
+
+  let searchFormElement = document.querySelector("#search-form");
+  searchFormElement.addEventListener("submit", handleSearchSubmit);
+
+  searchCity("Paris");
+}
+
+displayApp();
